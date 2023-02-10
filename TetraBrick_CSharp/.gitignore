@@ -1,0 +1,6 @@
+*.idea
+/.idea
+TetraBrick_CSharp/bin
+TetraBrick_CSharp/bin/*
+TetraBrick_CSharp/obj
+TetraBrick_CSharp/obj/*
