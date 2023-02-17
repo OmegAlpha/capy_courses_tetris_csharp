@@ -1,13 +1,16 @@
-﻿namespace TetraBrick_CSharp
+﻿using System;
+
+namespace TetraBrick_CSharp
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow
     {
+        public TetraGame game;
+        
         public MainWindow()
         {
             InitializeComponent();
+
+            game = new TetraGame();
         }
     }
 }
