@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 using TetraBrick_CSharp;
+using TetraBrick_CSharp.Tetra;
 
 public class TetraGame
 {
       public const int FRAME_TIME = 16;
-      public const int CELL_SIZE = 30;
+      
       public const int GRID_HEIGHT = 20;
       public const int GRID_WIDTH = 10;
       
@@ -19,7 +18,7 @@ public class TetraGame
       // Graficos
 
       private MainWindow _mainWindow;
-      
+
       public TetraGame(MainWindow mainWindow)
       {
             Console.WriteLine("Creating Tetra Game");
@@ -38,22 +37,16 @@ public class TetraGame
       private void Initialize()
       {
             Console.WriteLine("Initializing Tetra Game");
-            
-            for (int y = 0; y < GRID_HEIGHT; y++)
+            Grid gameGrid = new Grid(GRID_WIDTH, GRID_HEIGHT, _mainWindow);
+            for (int x = 0; x < GRID_WIDTH; x++)
             {
-                  for (int x = 0; x < GRID_WIDTH; x++)
-                  { 
-                        Image imgBGCell = new Image();
-                        imgBGCell.Width = CELL_SIZE;
-                        imgBGCell.Height = CELL_SIZE;
-                        imgBGCell.Source = new BitmapImage(new Uri("Assets/woooo.png", UriKind.Relative ));
-
-                        _mainWindow.GameCanvas.Children.Add(imgBGCell);
-                  
-                        Canvas.SetLeft(imgBGCell, x * CELL_SIZE);
-                        Canvas.SetTop(imgBGCell, y * CELL_SIZE);
+                  for (int y = 0; y < GRID_HEIGHT; y++)
+                  {
+                        gameGrid.cells[x, y].SetBackground(true);
                   }     
             }
+
+            Tetranimo tetranimo = new Tetranimo(_mainWindow);
       }
 
       private async Task GameLoop()

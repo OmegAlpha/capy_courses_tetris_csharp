@@ -50,7 +50,10 @@
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </ApplicationDefinition>
+        <Compile Include="Tetra\Grid.cs" />
+        <Compile Include="Tetra\GridCell.cs" />
         <Compile Include="Tetra\TetraGame.cs" />
+        <Compile Include="Tetra\Tetranimo.cs" />
         <Page Include="MainWindow.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
